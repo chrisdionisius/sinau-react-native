@@ -1,3 +1,93 @@
+import React from "react";
+import { Image, ScrollView, Text} from 'react-native';
+
+const logo = {
+  uri: 'https://reactnative.dev/img/tiny_logo.png',
+  width : 64,
+  height : 64,
+}
+
+const App = () =>(
+  <ScrollView>
+    <Text style={{fontSize:96}}>Scroll plzz</Text>
+    <Image source={logo} />
+    <Image source={logo} />
+    <Image source={logo} />
+    <Text style={{fontSize:96}}>Again, perhaps ?</Text>
+    <Image source={logo} />
+    <Image source={logo} />
+    <Image source={logo} />
+    <Text style={{fontSize:96}}>Scrolling down</Text>
+  </ScrollView>
+);
+
+export default App;
+
+// import React , {Component} from 'react';
+// import {Button, Image, Text, View} from 'react-native';
+
+// interface CatProps {
+//   name: string;
+// }
+
+// class Cat extends Component<CatProps>{
+//   state = {isHungry : true};
+
+//   render(){
+//     return(
+//       <View>
+//         <Text>
+//           I am {this.props.name}, and I'am {this.state.isHungry? 'Hungry' : 'Full'}
+//         </Text>
+//         <Button
+//          onPress={()=>{
+//           this.setState({isHungry:false});
+//          }}
+//          disabled={!this.state.isHungry}
+//          title={
+//           this.state.isHungry ? 'Pour me some milk, please' : 'Thank you!'
+//          }
+//          />
+//       </View>
+//     );
+//   }
+// }
+
+// const Cafe = () => {
+//   return (
+//     <View>
+//       <Cat name="Maru" />
+//       <Cat name="Jiro" />
+//     </View>
+//   );
+// };
+
+// export default Cafe;
+
+// import React, {useState} from 'react';
+// import {Text, TextInput, View} from 'react-native';
+
+// const PizzaTranslator = () => {
+//   const [text, setText] = useState('');
+//   return (
+//     <View style={{padding:10}}>
+//       <TextInput
+//         style={{height:40}}
+//         placeholder='Type to translate into pizza language'
+//         onChangeText={newText => setText(newText)}
+//         defaultValue={text}
+//       />
+//       <Text style={{padding:10, fontSize:42}}>
+//         {
+//           text.split(' ').map(word=>word && '🍕').join(' ')
+//         }
+//       </Text>
+//     </View>
+//   );
+// }
+
+// export default PizzaTranslator;
+
 // /**
 //  * Sample React Native App
 //  * https://github.com/facebook/react-native
@@ -116,69 +206,3 @@
 // });
 
 // export default App;
-
-
-// import React , {Component} from 'react';
-// import {Button, Image, Text, View} from 'react-native';
-
-// interface CatProps {
-//   name: string;
-// }
-
-// class Cat extends Component<CatProps>{
-//   state = {isHungry : true};
-
-//   render(){
-//     return(
-//       <View>
-//         <Text>
-//           I am {this.props.name}, and I'am {this.state.isHungry? 'Hungry' : 'Full'}
-//         </Text>
-//         <Button
-//          onPress={()=>{
-//           this.setState({isHungry:false});
-//          }}
-//          disabled={!this.state.isHungry}
-//          title={
-//           this.state.isHungry ? 'Pour me some milk, please' : 'Thank you!'
-//          }
-//          />
-//       </View>
-//     );
-//   }
-// }
-
-// const Cafe = () => {
-//   return (
-//     <View>
-//       <Cat name="Maru" />
-//       <Cat name="Jiro" />
-//     </View>
-//   );
-// };
-
-// export default Cafe;
-
-import React, {useState} from 'react';
-import {Text, TextInput, View} from 'react-native';
-
-const PizzaTranslator = () => {
-  const [text, setText] = useState('');
-  return (
-    <View style={{padding:10}}>
-      <TextInput
-        style={{height:40}}
-        placeholder='Type to translate into pizza language'
-        onChangeText={newText => setText(newText)}
-        defaultValue={text}
-      />
-      <Text style={{padding:10, fontSize:42}}>
-        {
-          text.split(' ').map(word=>word && '🍕').join(' ')
-        }
-      </Text>
-    </View>
-  );
-}
-
-export default PizzaTranslator;
