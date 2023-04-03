@@ -119,7 +119,7 @@
 
 
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 interface CatProps {
   name: string;
@@ -136,9 +136,13 @@ const Cat = (props: CatProps) => {
 const Cafe = () => {
   return (
     <View>
+      <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat1.png'}}
+      style={{
+        width:200,
+        height:200
+      }}
+      />
       <Cat name="Maru" />
-      <Cat name="Jellylorum" />
-      <Cat name="Spot" />
     </View>
   );
 };
