@@ -118,43 +118,67 @@
 // export default App;
 
 
-import React , {Component} from 'react';
-import {Button, Image, Text, View} from 'react-native';
+// import React , {Component} from 'react';
+// import {Button, Image, Text, View} from 'react-native';
 
-interface CatProps {
-  name: string;
-}
+// interface CatProps {
+//   name: string;
+// }
 
-class Cat extends Component<CatProps>{
-  state = {isHungry : true};
+// class Cat extends Component<CatProps>{
+//   state = {isHungry : true};
 
-  render(){
-    return(
-      <View>
-        <Text>
-          I am {this.props.name}, and I'am {this.state.isHungry? 'Hungry' : 'Full'}
-        </Text>
-        <Button
-         onPress={()=>{
-          this.setState({isHungry:false});
-         }}
-         disabled={!this.state.isHungry}
-         title={
-          this.state.isHungry ? 'Pour me some milk, please' : 'Thank you!'
-         }
-         />
-      </View>
-    );
-  }
-}
+//   render(){
+//     return(
+//       <View>
+//         <Text>
+//           I am {this.props.name}, and I'am {this.state.isHungry? 'Hungry' : 'Full'}
+//         </Text>
+//         <Button
+//          onPress={()=>{
+//           this.setState({isHungry:false});
+//          }}
+//          disabled={!this.state.isHungry}
+//          title={
+//           this.state.isHungry ? 'Pour me some milk, please' : 'Thank you!'
+//          }
+//          />
+//       </View>
+//     );
+//   }
+// }
 
-const Cafe = () => {
+// const Cafe = () => {
+//   return (
+//     <View>
+//       <Cat name="Maru" />
+//       <Cat name="Jiro" />
+//     </View>
+//   );
+// };
+
+// export default Cafe;
+
+import React, {useState} from 'react';
+import {Text, TextInput, View} from 'react-native';
+
+const PizzaTranslator = () => {
+  const [text, setText] = useState('');
   return (
-    <View>
-      <Cat name="Maru" />
-      <Cat name="Jiro" />
+    <View style={{padding:10}}>
+      <TextInput
+        style={{height:40}}
+        placeholder='Type to translate into pizza language'
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
+      />
+      <Text style={{padding:10, fontSize:42}}>
+        {
+          text.split(' ').map(word=>word && '🍕').join(' ')
+        }
+      </Text>
     </View>
   );
-};
+}
 
-export default Cafe;
+export default PizzaTranslator;
