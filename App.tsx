@@ -118,31 +118,41 @@
 // export default App;
 
 
-import React from 'react';
-import {Image, Text, View} from 'react-native';
+import React , {Component} from 'react';
+import {Button, Image, Text, View} from 'react-native';
 
 interface CatProps {
   name: string;
 }
 
-const Cat = (props: CatProps) => {
-  return (
-    <View>
-      <Text>Hello, I am {props.name}!</Text>
-    </View>
-  );
-};
+class Cat extends Component<CatProps>{
+  state = {isHungry : true};
+
+  render(){
+    return(
+      <View>
+        <Text>
+          I am {this.props.name}, and I'am {this.state.isHungry? 'Hungry' : 'Full'}
+        </Text>
+        <Button
+         onPress={()=>{
+          this.setState({isHungry:false});
+         }}
+         disabled={!this.state.isHungry}
+         title={
+          this.state.isHungry ? 'Pour me some milk, please' : 'Thank you!'
+         }
+         />
+      </View>
+    );
+  }
+}
 
 const Cafe = () => {
   return (
     <View>
-      <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat1.png'}}
-      style={{
-        width:200,
-        height:200
-      }}
-      />
       <Cat name="Maru" />
+      <Cat name="Jiro" />
     </View>
   );
 };
