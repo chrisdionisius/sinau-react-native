@@ -1,51 +1,106 @@
-import React from "react";
-import { FlatList, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {SectionList, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    paddingTop:22,
+  container: {
+    flex: 1,
+    paddingTop: 22,
   },
-  item:{
-    padding:10,
-    fontSize:18,
-    height:44,
-  }
-})
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#004868',
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+});
 
-const FlatListBasic = () => {
+const SectionListBasics = () => {
   return (
     <View style={styles.container}>
-      <FlatList 
-        data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-          {key: 'Yohan'},
-          {key: 'Matt'},
-          {key: 'Riz'},
-          {key: 'Timothy'},
-          {key: 'Fany'},
+      <SectionList
+        sections={[
+          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+          {
+            title: 'J',
+            data: [
+              'Jackson',
+              'James',
+              'Jillian',
+              'Jimmy',
+              'Joel',
+              'John',
+              'Julie',
+            ],
+          },
         ]}
-        renderItem={({item}) => 
-          <Text style={styles.item}>
-            {item.key}
-          </Text>
-        }
-        />
+        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+        renderSectionHeader={({section}) => (
+          <Text style={styles.sectionHeader}>{section.title}</Text>
+        )}
+        keyExtractor={item => `basicListEntry-${item}`}
+      />
     </View>
   );
-}
+};
 
-export default FlatListBasic;
+export default SectionListBasics;
 
+// import React from "react";
+// import { FlatList, StyleSheet, Text, View} from 'react-native';
+
+// const styles = StyleSheet.create({
+//   container:{
+//     flex:1,
+//     paddingTop:22,
+//   },
+//   item:{
+//     padding:10,
+//     fontSize:18,
+//     height:44,
+//   }
+// })
+
+// const FlatListBasic = () => {
+//   return (
+//     <View style={styles.container}>
+//       <FlatList
+//         data={[
+//           {key: 'Devin'},
+//           {key: 'Dan'},
+//           {key: 'Dominic'},
+//           {key: 'Jackson'},
+//           {key: 'James'},
+//           {key: 'Joel'},
+//           {key: 'John'},
+//           {key: 'Jillian'},
+//           {key: 'Jimmy'},
+//           {key: 'Julie'},
+//           {key: 'Yohan'},
+//           {key: 'Matt'},
+//           {key: 'Riz'},
+//           {key: 'Timothy'},
+//           {key: 'Fany'},
+//         ]}
+//         renderItem={({item}) =>
+//           <Text style={styles.item}>
+//             {item.key}
+//           </Text>
+//         }
+//         />
+//     </View>
+//   );
+// }
+
+// export default FlatListBasic;
 
 // import React from "react";
 // import { Image, ScrollView, Text} from 'react-native';
